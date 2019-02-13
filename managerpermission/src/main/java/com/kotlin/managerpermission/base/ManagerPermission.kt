@@ -17,8 +17,8 @@ class ManagerPermission(val activity: Activity, val list: List<String>, val code
 
     private fun showDialg() {
         val builder = AlertDialog.Builder(activity)
-        builder.setTitle("")
-        builder.setMessage("")
+        builder.setTitle("Need permission(s)")
+        builder.setMessage("Some permissions are required to do the task.")
         builder.setPositiveButton("ok", { dialog, which -> requestPermission() })
         builder.setNeutralButton("cancel", null)
         val dialog = builder.create()
