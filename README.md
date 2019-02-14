@@ -11,13 +11,17 @@ allprojects
 
         google()
         jcenter()
-        maven { url 'https://jitpack.io'}
+        maven { url 'https://jitpack.io'
+        
+        }
     }
 }
 
 dependencies
 {
+
 implementation 'io.github.mohammad0261:MHPermission:1.02'
+
 }
 
 
@@ -34,10 +38,13 @@ private lateinit var manager: ManagerPermission
 
 
 public class MainActivity : AppCompatActivity()
+
 {
+
  private lateinit var manager: ManagerPermission
  val e: String = RequestHelper().ACCESS_COARSE_LOCATION
 override fun onCreate(savedInstanceState: Bundle?)
+
 {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -59,8 +66,10 @@ override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<Str
                     Toast.makeText(this@MainActivity, "Permissions granted.", Toast.LENGTH_SHORT).show()
                 }
                   else
+    
                 {
                     Toast.makeText(this@MainActivity, "Permissions denied.", Toast.LENGTH_SHORT).show()
+                    
                 }
             }
         }
