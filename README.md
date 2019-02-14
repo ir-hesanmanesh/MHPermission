@@ -11,7 +11,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://jitpack.io'   }
+        maven { url 'https://jitpack.io' }
     } 
 }
 ```
@@ -31,7 +31,7 @@ implementation 'io.github.mohammad0261:MHPermission:1.02'
 
 
 
-**1.use ManagerPermission into Project**
+>**1.use ManagerPermission into Project**
 
 
 
