@@ -18,6 +18,7 @@ allprojects
 }
 
 dependencies
+
 {
 
 implementation 'io.github.mohammad0261:MHPermission:1.02'
@@ -51,19 +52,26 @@ override fun onCreate(savedInstanceState: Bundle?)
         btn.setOnClickListener { btn ->
             manager = ManagerPermission(this, listOf(e), Requester)
             manager.checkpermission()
+            
         }
+        
     }
 
 override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) 
+    
     {
             Requester ->
+            
     {
                 val ispermissionGrand= manager.processPermissionsResult(requestCode, permissions, grantResults)
-                if (ispermissionGrand){
+                if (ispermissionGrand)
+                
+                {
                     // Do the task now
                     Toast.makeText(this@MainActivity, "Permissions granted.", Toast.LENGTH_SHORT).show()
+                    
                 }
                   else
     
@@ -71,7 +79,11 @@ override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<Str
                     Toast.makeText(this@MainActivity, "Permissions denied.", Toast.LENGTH_SHORT).show()
                     
                 }
+                
             }
+            
         }
+        
     }
+    
 }
