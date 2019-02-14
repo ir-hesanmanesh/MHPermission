@@ -31,7 +31,7 @@ implementation 'io.github.mohammad0261:MHPermission:1.02'
 
 
 
->**1.use ManagerPermission into Project**
+>**1.  use ManagerPermission into Project**
 
 
 
@@ -43,7 +43,7 @@ private lateinit var manager: ManagerPermission
 
 
 
->**2. use Access Permission**
+>**2.  use Access Permission**
 
 
 
@@ -58,7 +58,7 @@ private lateinit var manager: ManagerPermission
  
  
  
->**3.call method onRequestPermissionsResult**
+>**3.  call method onRequestPermissionsResult**
 
 
 
