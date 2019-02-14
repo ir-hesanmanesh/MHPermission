@@ -4,27 +4,17 @@ Libray MHPermission Easy use of permission
 
 Use MHPermssion into build.gradle
 
-
-allprojects
-
-{
+allprojects {
     repositories 
-    
 {
         google()
         jcenter()
-        maven { url 'https://jitpack.io'
-        
-        }
+        maven { url 'https://jitpack.io'}
     }
 }
 
-dependencies
-
-{
-
+dependencies{
 implementation 'io.github.mohammad0261:MHPermission:1.02'
-
 }
 
 
@@ -40,52 +30,30 @@ private lateinit var manager: ManagerPermission
 
 
 
-public class MainActivity : AppCompatActivity()
-
-{
-
+public class MainActivity : AppCompatActivity() {
  private lateinit var manager: ManagerPermission
  val e: String = RequestHelper().ACCESS_COARSE_LOCATION
-override fun onCreate(savedInstanceState: Bundle?)
-
-{
+override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btn.setOnClickListener { btn ->
             manager = ManagerPermission(this, listOf(e), Requester)
             manager.checkpermission()
-            
         }
-        
     }
 
 override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) 
-    
-    {
-            Requester ->
-            
-    {
+        when (requestCode) {
+            Requester -> {
                 val ispermissionGrand= manager.processPermissionsResult(requestCode, permissions, grantResults)
-                if (ispermissionGrand)
-                
-                {
+                if (ispermissionGrand){
                     // Do the task now
                     Toast.makeText(this@MainActivity, "Permissions granted.", Toast.LENGTH_SHORT).show()
-                    
-                }
-                  else
-    
-                {
+                } else {
                     Toast.makeText(this@MainActivity, "Permissions denied.", Toast.LENGTH_SHORT).show()
-                    
                 }
-                
             }
-            
         }
-        
     }
-    
 }
