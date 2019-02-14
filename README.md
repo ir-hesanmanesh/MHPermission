@@ -4,13 +4,13 @@ Libray MHPermission Easy use of permission
 
 Use MHPermssion into build.gradle
 
+
 allprojects
 
 {
     repositories 
     
 {
-
         google()
         jcenter()
         maven { url 'https://jitpack.io'
