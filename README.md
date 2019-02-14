@@ -1,8 +1,14 @@
 **Libray MHPermission Easy use of permission**
 
+
+
 [![](https://jitpack.io/v/io.github.mohammad0261/MHPermission.svg)](https://jitpack.io/#io.github.mohammad0261/MHPermission)
 
->**Use MHPermssion into build.gradle**
+
+
+
+
+> **Use MHPermssion into build.gradle**
 
 
 
@@ -21,6 +27,8 @@ allprojects {
 
 
 
+
+
 ```kotlin
 dependencies{
 implementation 'io.github.mohammad0261:MHPermission:1.02'
@@ -31,7 +39,7 @@ implementation 'io.github.mohammad0261:MHPermission:1.02'
 
 
 
->**1.  use ManagerPermission into Project**
+> **1.  use ManagerPermission into Project**
 
 
 
@@ -43,7 +51,7 @@ private lateinit var manager: ManagerPermission
 
 
 
->**2.  use Access Permission**
+>**2.  Use Access Permission ACCESS_COARSE_LOCATION**
 
 
 
@@ -58,7 +66,7 @@ private lateinit var manager: ManagerPermission
  
  
  
->**3.  call method onRequestPermissionsResult**
+> **3.  call method onRequestPermissionsResult**
 
 
 
@@ -66,7 +74,7 @@ private lateinit var manager: ManagerPermission
 ```kotlin
 public class MainActivity : AppCompatActivity() {
  private lateinit var manager: ManagerPermission
- val e: String = RequestHelper().ACCESS_COARSE_LOCATION
+ private val e: String = RequestHelper().ACCESS_COARSE_LOCATION
 override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -75,7 +83,6 @@ override fun onCreate(savedInstanceState: Bundle?) {
             manager.checkpermission()
         }
     }
-
 override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
