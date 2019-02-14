@@ -4,32 +4,66 @@ Libray MHPermission Easy use of permission
 
 Use MHPermssion into build.gradle
 
+
+
+```kotlin
 allprojects {
-    repositories 
-{
+    repositories {
         google()
         jcenter()
-        maven { url 'https://jitpack.io'}
-    }
+        maven { url 'https://jitpack.io'   }
+    } 
 }
+```
 
+
+
+
+
+
+```kotlin
 dependencies{
 implementation 'io.github.mohammad0261:MHPermission:1.02'
 }
+```
+
+
+
 
 
 1.use ManagerPermission into Project
 
+
+
+
+```kotlin
 private lateinit var manager: ManagerPermission
+```
+
+
+
 
 2. use Access Permission
 
+
+
+
+```kotlin
  val e: String = RequestHelper().ACCESS_COARSE_LOCATION
+ ```
+
+
+ 
+ 
+ 
+ 
  
 3.call method onRequestPermissionsResult
 
 
 
+
+```kotlin
 public class MainActivity : AppCompatActivity() {
  private lateinit var manager: ManagerPermission
  val e: String = RequestHelper().ACCESS_COARSE_LOCATION
@@ -57,3 +91,4 @@ override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<Str
         }
     }
 }
+```
