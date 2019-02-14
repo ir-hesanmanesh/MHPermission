@@ -3,10 +3,6 @@ This site was built using [GitHub Pages](https://mohammad0261.github.io/MHPermis
 
 
 
-[![](https://jitpack.io/v/io.github.mohammad0261/MHPermission.svg)](https://jitpack.io/#io.github.mohammad0261/MHPermission)
-
-
-
 
 
 > **Use MHPermssion into build.gradle**
