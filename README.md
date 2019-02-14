@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/io.github.mohammad0261/MHPermission.svg)](https://jitpack.io/#io.github.mohammad0261/MHPermission)
 
-**Use MHPermssion into build.gradle**
+>**Use MHPermssion into build.gradle**
 
 
 
@@ -43,7 +43,7 @@ private lateinit var manager: ManagerPermission
 
 
 
-**2. use Access Permission**
+>**2. use Access Permission**
 
 
 
@@ -58,7 +58,7 @@ private lateinit var manager: ManagerPermission
  
  
  
-**3.call method onRequestPermissionsResult**
+>**3.call method onRequestPermissionsResult**
 
 
 
