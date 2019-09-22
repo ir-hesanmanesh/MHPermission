@@ -13,11 +13,12 @@ class ManagerPermission(val activity: Activity, val list: List<String>, val code
             showDialg()
         else
             Toast.makeText(activity, "Permissions already granted", Toast.LENGTH_SHORT).show()
+            requestPermission()
     }
 
     private fun showDialg() {
         val builder = AlertDialog.Builder(activity)
-        builder.setTitle("Need permission(s)")
+        builder.setTitle("Need permission accept")
         builder.setMessage("Some permissions are required to do the task.")
         builder.setPositiveButton("ok", { dialog, which -> requestPermission() })
         builder.setNeutralButton("cancel", null)
@@ -35,7 +36,11 @@ class ManagerPermission(val activity: Activity, val list: List<String>, val code
 
     private fun deniedPermission(): String {
         for (permission in list) {
-            if (ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_DENIED)
+            if (ContextCompat.checkSelfPermission(
+                    activity,
+                    permission
+                ) == PackageManager.PERMISSION_DENIED
+            )
                 return permission
         }
         return ""
@@ -49,7 +54,11 @@ class ManagerPermission(val activity: Activity, val list: List<String>, val code
         return Counter
     }
 
-    fun processPermissionsResult(requestcode: Int, permission: Array<String>, grandResult: IntArray): Boolean {
+    fun processPermissionsResult(
+        requestcode: Int,
+        permission: Array<String>,
+        grandResult: IntArray
+    ): Boolean {
         var result = 0
         if (grandResult.isNotEmpty()) {
             for (item in grandResult) {
