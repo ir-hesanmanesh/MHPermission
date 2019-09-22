@@ -13,7 +13,7 @@ class ManagerPermission(val activity: Activity, val list: List<String>, val code
             showDialg()
         else
             Toast.makeText(activity, "Permissions already granted", Toast.LENGTH_SHORT).show()
-            requestPermission()
+            isPermissionGranted()
     }
 
     private fun showDialg() {
