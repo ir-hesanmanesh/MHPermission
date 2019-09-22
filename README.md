@@ -28,7 +28,7 @@ allprojects {
 
 ```kotlin
 dependencies{
-implementation 'io.github.ir-hesanmanesh:MHPermission:1.02'
+implementation 'com.github.ir-hesanmanesh:MHPermission:1.04'
 }
 ```
 
