@@ -1,23 +1,24 @@
 package com.kotlin.managerpermission.base
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
 
-class ManagerPermission(val activity: Activity, val list: List<String>, val code: Int) {
+
+class ManagerPermissionFragment(val fragment: FragmentActivity, val list: List<String>, val code: Int) {
     fun checkpermission() {
         if (isPermissionGranted() != PackageManager.PERMISSION_GRANTED)
             showDialg()
         else
-            Toast.makeText(activity, "Permissions already granted", Toast.LENGTH_SHORT).show()
-            isPermissionGranted()
+            Toast.makeText(fragment, "Permissions already granted", Toast.LENGTH_SHORT).show()
+        isPermissionGranted()
     }
 
     private fun showDialg() {
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(fragment)
         builder.setTitle("Need permission accept")
         builder.setMessage("Some permissions are required to do the task.")
         builder.setPositiveButton("ok", { dialog, which -> requestPermission() })
@@ -28,16 +29,16 @@ class ManagerPermission(val activity: Activity, val list: List<String>, val code
 
     private fun requestPermission() {
         val permission = deniedPermission()
-        if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission))
-            Toast.makeText(activity, "Should show an explanation.", Toast.LENGTH_LONG).show()
+        if (ActivityCompat.shouldShowRequestPermissionRationale(fragment, permission))
+            Toast.makeText(fragment, "Should show an explanation.", Toast.LENGTH_LONG).show()
         else
-            ActivityCompat.requestPermissions(activity, list.toTypedArray(), code)
+            ActivityCompat.requestPermissions(fragment, list.toTypedArray(), code)
     }
 
     private fun deniedPermission(): String {
         for (permission in list) {
             if (ContextCompat.checkSelfPermission(
-                    activity,
+                    fragment,
                     permission
                 ) == PackageManager.PERMISSION_DENIED
             )
@@ -49,7 +50,7 @@ class ManagerPermission(val activity: Activity, val list: List<String>, val code
     private fun isPermissionGranted(): Int {
         var Counter = 0
         for (permission in list) {
-            Counter += ContextCompat.checkSelfPermission(activity, permission)
+            Counter += ContextCompat.checkSelfPermission(fragment, permission)
         }
         return Counter
     }
@@ -69,8 +70,4 @@ class ManagerPermission(val activity: Activity, val list: List<String>, val code
             return true
         return false
     }
-
 }
-
-
-
